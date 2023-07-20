@@ -7,7 +7,7 @@ require('dotenv').config()
 var transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "adebola.rb.js@gmail.com",
+    user: process.env.email,
     pass: process.env.password,
   },
 });
@@ -25,8 +25,8 @@ const handlebarOptions = {
 transporter.use("compile", hbs(handlebarOptions));
 
 var mailOptions = {
-  from: '"Adebola" <adebola.rb.js@gmail.com>', // sender address
-  to: "adebola.rb.js@gmail.com", // list of receivers
+  from: '"Adebola" <your_email@gmail.com>', // sender address
+  to: "your_email@gmail.com", // list of receivers
   subject: "Welcome!",
   template: "email", // the name of the template file i.e email.handlebars
   context: {
